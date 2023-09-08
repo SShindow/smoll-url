@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Smoll URL
+A URL Shortener Application build with React JS, Python Flask, Firebase Data Base and Heroku.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Videos - I learn how to do this from this guy below:
+1. React Client App: https://youtu.be/LGdIDm-4Dv8
+2. Flask Server and Heroku Deployment: https://youtu.be/OX4IBcoKVfg
 
-## Available Scripts
+The project is composed of two folders, client side and server side
 
-In the project directory, you can run:
+## Client
+This is single page react app written with bootstrap that takes the long URL from a user, stores it in a database (firebase database) and gives the user a generated
+mini url. 
 
-### `npm start`
+### Dependencies
+1. Firebase Project Account
+2. Firebase Database in Project Account
+3. Firebase config in index.js line 9. See this video on how to generate your own config.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Running client Locally
+1. `npm install` To install dependencies (Be sure you have a firebase account)
+2. `npm start`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Server
+This is a python flask web server that listens for calls made with the generated URL, goes to the database, fetches the long URL then redirects the user to the
+long URLS page.
 
-### `npm test`
+### Dependencies
+1. Firebase Project Account
+2. Firebase Database in Project Account
+3. Firebase service account json key file (ServiceAccountKey.json) in mini-link-it-server/app/main.py line 6 (See video on how to generate yours)
+4. Firebase Database URL in mini-link-it-server/app/main.py line 8 (See video on how to generate yours)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Running Server Locally
+1. Create a virtual environment in the mini-link-it-server folder (python3 -m venv venv)
+2. Activate virtual environment (`source venv/bin/activate` for mac and `venv/Scripts/activate` for windows)
+3. Besure you have the ServiceAccountKey.json in mini-link-it-server. 
+4. `python wsgi.py`
 
-### `npm run build`
+The flask app is also set up to run the production version the react app. The build should be locatedin the app folder for this to work!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy coding!
